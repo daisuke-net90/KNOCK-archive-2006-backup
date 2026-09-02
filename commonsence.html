@@ -1,120 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>CLASSIFIED INFRASTRUCTURE / EXCLUSION ZONE NET PROTOCOL</title>
     <style>
         body {
-            background-color: #fafafa;
-            color: #222222;
+            background-color: #fafafa; color: #222222;
             font-family: "MS Gothic", "Segoe UI", Arial, sans-serif;
-            padding: 40px 20px;
-            margin: 0;
+            padding: 30px 20px; margin: 0;
         }
         .govt-alert-panel {
-            max-width: 680px;
-            margin: 0 auto;
-            border: 2px solid #dc2626;
-            background: #ffffff;
-            padding: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-radius: 4px;
+            max-width: 680px; margin: 0 auto; border: 2px solid #dc2626;
+            background: #ffffff; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-radius: 4px;
         }
+        
+        /* BARRA DE TRADUCCIÓN INSTITUCIONAL */
+        .wm-translation-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            background: #f1f5f9; border: 1px solid #cbd5e1; padding: 6px 12px;
+            border-radius: 4px; margin-bottom: 20px; font-size: 11px; color: #475569;
+        }
+        .wm-trans-btn {
+            background: #0f172a; border: 1px solid #0f172a; padding: 4px 12px;
+            font-size: 11px; font-weight: bold; color: #ffffff; cursor: pointer;
+            border-radius: 3px; transition: background 0.15s;
+        }
+        .wm-trans-btn:hover { background: #1e293b; }
+
         .govt-alert-panel h1 {
-            font-size: 18px;
-            font-weight: bold;
-            color: #dc2626;
-            margin-top: 0;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #dc2626;
-            letter-spacing: 0.5px;
+            font-size: 17px; font-weight: bold; color: #dc2626; margin-top: 0;
+            padding-bottom: 8px; border-bottom: 2px solid #dc2626; letter-spacing: 0.5px;
         }
-        .govt-alert-panel p {
-            font-size: 13px;
-            color: #1e293b;
-            line-height: 1.6em;
-        }
+        .govt-alert-panel p { font-size: 13px; color: #1e293b; line-height: 1.6em; }
+        
         .legal-code-box {
-            background-color: #f8fafc;
-            border: 1px solid #cbd5e1;
-            padding: 15px;
-            margin: 15px 0;
-            font-family: Consolas, monospace;
-            font-size: 11px;
-            color: #334155;
-            line-height: 1.5em;
+            background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 12px;
+            margin: 15px 0; font-family: Consolas, monospace; font-size: 11px; color: #334155; line-height: 1.5em;
         }
-        .legal-title {
-            font-weight: bold;
-            color: #0f172a;
-            display: block;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-        }
-        .explanation-section {
-            font-size: 12px;
-            color: #475569;
-            line-height: 1.6em;
-            margin-top: 15px;
-            text-align: justify;
-        }
-        .govt-official-seal {
-            font-size: 10px;
-            color: #64748b;
-            font-weight: bold;
-            margin: 20px 0 0 0;
-        }
+        .legal-title { font-weight: bold; color: #0f172a; display: block; margin-bottom: 4px; }
+        .explanation-section { font-size: 12px; color: #475569; line-height: 1.6em; margin-top: 15px; text-align: justify; }
+        .govt-official-seal { font-size: 10px; color: #64748b; font-weight: bold; margin: 20px 0 0 0; }
+        
         .govt-warning-redbox {
-            background-color: #fef2f2;
-            border: 1px solid #fca5a5;
-            color: #991b1b;
-            padding: 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            margin-top: 15px;
-            font-weight: bold;
-            line-height: 1.5em;
+            background-color: #fef2f2; border: 1px solid #fca5a5; color: #991b1b;
+            padding: 10px; border-radius: 4px; font-size: 11px; font-weight: bold; line-height: 1.4em; margin-top: 15px;
         }
-        .record-label-link {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .record-label-link:hover {
-            text-decoration: underline;
-        }
+        .record-label-link { color: #2563eb; text-decoration: none; font-weight: bold; }
+        .record-label-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
+
     <div class="govt-alert-panel">
-        <h1>CLASSIFIED INFRASTRUCTURE / EXCLUSION ZONE NET PROTOCOL</h1>
-        <p style="font-weight: bold; color: #000; margin-bottom: 10px;">ACCESS DENIED BY THE DECREE OF THE MINISTRY OF INTERNAL AFFAIRS AND COMMUNICATIONS (JUNE 2012).</p>
-        <p>This digital domain asset has been permanently seized, expunged, and deactivated under the Biological Species Separation Act. Transmission, hosting, or external redirection of digital audio tracking files, ancestral lineage registries, or unauthorized data encryption linked to non-pure human vector categories is strictly prohibited.</p>
+        <!-- BARRA SUPERIOR DE TRADUCCIÓN SIMULADA -->
+        <div class="wm-translation-bar">
+            <span id="trans-lang-label">Language: 日本語 (Japanese)</span>
+            <button class="wm-trans-btn" id="trans-trigger-btn" onclick="toggleGovtTranslation()">Translate to English</button>
+        </div>
+
+        <!-- ENCABEZADO DE CENSURA -->
+        <h1 id="text-heading">国HA-06：指定インフラ / 警戒区域ネットワーク規制</h1>
+        <p id="text-subheading" style="font-weight: bold; color: #000; margin-bottom: 10px;">総務省令（2012年6月）に基づくアクセス制限通告。</p>
+        <p id="text-main-desc">本デジタルドメインは、生物種隔離法（Biological Species Separation Act）に基づき、永久に差し押さえられ、無効化されました。人間の居住区内における、未確認オーディオファイル、血統追跡メタデータ、または狼/動物の祖先を持つ特定血統に紐づく暗号化通信の配信およびホスティングは固く禁止されています。</p>
         
-        <!-- VIOLACIONES AL CÓDIGO PENAL JAPONÉS REAL DE LA ÉPOCA -->
-        <div class="legal-code-box">
-            <span class="legal-title">JAPANESE PENAL CODE OFFENSES (PENAL CODE ACT NO. 45 OF 1907, AMENDED 2001/2007)</span>
-             <strong>Article 234-2 (Obstruction of Business by Damaging a Computer):</strong> Illegal injection of raw data and non-standard transmission sequences into public telecommunication networks via hidden metadata tags.<br>
-             <strong>Article 258 (Damaging Electronic Public Records):</strong> Systematic suppression, falsification, and unauthorized removal of historical lineage documentation and tracking assets from the national registry servers.<br>
-             <strong>Unauthorized Computer Access Act (Act No. 128 of 1999, Section 3):</strong> Creation and distribution of backdoor protocols ("Yuki-Mode Activation Scripts") designed to evade network firewalls in restricted human sectors.
+        <!-- CÓDIGO PENAL EN JAPONÉS POR DEFECTO -->
+        <div class="legal-code-box" id="text-legal-box">
+            <span class="legal-title">日本国刑法違反案件（明治40年法律第45号、2001年/2007年改正）</span>
+            • <strong>第234条の2（電子計算機損壊等業務妨害罪）：</strong> 隠しメタデータタグを介した、公衆電気通信ネットワークへの不正データおよび非標準送信シーケンスの注入。<br>
+            • <strong>第258条 (公用文書等毀損罪)：</strong> 国家登記サーバーからの、歴史的血統記録および追跡データの組織的な隠蔽、改ざん、および無断削除。<br>
+            • <strong>不正アクセス行為の禁止等に関する法律 (平成11年法律第128号第3条)：</strong> 制限された人間のセクターにおいてネットワークファイアウォールを回避するために設計されたバックドアプロトコル（「Yukiモード起動スクリプト」）の作成および配布。
         </div>
 
-        <!-- EXPLICACIÓN HISTÓRICA NARRATIVA (XENOFOBIA INSTITUCIONAL) -->
-        <div class="explanation-section">
-            <strong>ADMINISTRATIVE BRIEFING:</strong> Following the public safety containment protocols executed in the Kohaku Settlement (June 2012), all networks broadcasting metadata associated with the VLI Vector (Infected Wolf Lineage) have been blacklisted. The preservation of local musical archives or public forums dedicated to hybrid ancestral entities poses an immediate threat to the demographic stability of the Pure Human Districts. Cultural integration and public empathy toward non-standard biological species are classified as containment failures. This domain is no longer recognized under standard civilian web access.
+        <!-- EXPLICACIÓN DE XENOFOBIA EN JAPONÉS -->
+        <div class="explanation-section" id="text-explanation">
+            <strong>行政通達：</strong> コハク集落（2012年6月）で執行された公衆衛生隔離プロトコルに伴い、VLIベクター（感染狼血統）に関連するメタデータを配信するすべてのネットワークはブラックリストに登録されました。純粋な人間の居住区において、非標準生物種に対する公の共感や文化的統合を促すアーカイブの維持は、隔離政策の重大な破綻とみなされます。本ドメインは民間ネットワーク上から完全に抹消されました。
         </div>
 
-        <!-- ENLACE OFICIAL A LA DISQUERA REAL -->
-        <div class="explanation-section" style="border-top: 1px dashed #cbd5e1; padding-top: 10px; margin-top: 15px;">
-            For dynamic verification of standard sound publishing licenses and corporate compliance, references have been cataloged under the official recording registry: 
-            <a class="record-label-link" href="https://sonymusic.co.jp" target="_blank">Sony Music Entertainment Japan (SMEJ) Official Portal</a>.
+        <!-- ENLACE A LA DISQUERA -->
+        <div class="explanation-section" id="text-disquera" style="border-top: 1px dashed #cbd5e1; padding-top: 10px; margin-top: 15px;">
+            標準的な音源出版ライセンスおよび企業コンプライアンスの動的検証については、公式の録音登記を参照してください：
+            <a class="record-label-link" href="https://sonymusic.co.jp" target="_blank">Sony Music Entertainment Japan (SMEJ) 公式ポータル</a>.
         </div>
 
         <hr>
-        <p class="govt-official-seal">GOVERNMENT OF JAPAN — DIGITAL SECURITY INTERVENTION CORE | NODE: TOKYO-MAIN-06</p>
-        <div class="govt-warning-redbox">
-            REMOVAL NOTICE: Due to territorial border split regulations enacted between pure human districts and coexistence sectors (Mizukawa Region), this civilian node has been permanently blacklisted. Continued attempts to duplicate this cache will trigger standard locator tracing protocols.
+        <p class="govt-official-seal">GOBERNMENT OF JAPAN — DIGITAL SECURITY INTERVENTION CORE | NODE: TOKYO-MAIN-06</p>
+        <div class="govt-warning-redbox" id="text-warning-box">
+            排除通告：純粋な人間の居住区と共生セクター（水川地域）の間で制定された国境分割規制に基づき、この民間ノードは永久にブラックリストに登録されました。このキャッシュを複製しようとする継続的な試みは、標準的な追跡プロトコルを作動させます。
         </div>
     </div>
+
+    <!-- SCRIPT DE TRADUCCIÓN INTERACTIVA SÚPER LIGERO -->
+    <script>
+        var currentLanguage = 'JA';
+        
+        function toggleGovtTranslation() {
+            var btn = document.getElementById('trans-trigger-btn');
+            var label = document.getElementById('trans-lang-label');
+            
+            if (currentLanguage === 'JA') {
+                // CAMBIAR TODO AL INGLÉS COMPLETO
+                document.getElementById('text-heading').innerHTML = "CLASSIFIED INFRASTRUCTURE / EXCLUSION ZONE NET PROTOCOL";
+                document.getElementById('text-subheading').innerHTML = "ACCESS DENIED BY DECREE OF THE MINISTRY OF INTERNAL AFFAIRS AND COMMUNICATIONS (JUNE 2012).";
+                document.getElementById('text-main-desc').innerHTML = "This digital domain asset has been permanently seized, expunged, and deactivated under the Biological Species Separation Act. Transmission or hosting of unverified audio files, lineage tracking metadata, or encrypted messaging channels linked to ancestral wolf/animal families within civilian sectors is strictly prohibited.";
+                
+                document.getElementById('text-legal-box').innerHTML = `<span class='legal-title'>JAPANESE PENAL CODE OFFENSES (PENAL CODE ACT NO. 45 OF 1907, AMENDED 2001/2007)</span>
+                • <strong>Article 234-2 (Obstruction of Business by Damaging a Computer):</strong> Illegal injection of raw data and non-standard transmission sequences into public telecommunication networks via hidden metadata tags.<br>
+                • <strong>Article 258 (Damaging Electronic Public Records):</strong> Systematic suppression, falsification, and unauthorized removal of historical lineage documentation from national registry servers.<br>
+                • <strong>Unauthorized Computer Access Act (Act No. 128 of 1999, Section 3):</strong> Creation and distribution of backdoor protocols ("Yuki-Mode Activation Scripts") designed to evade firewalls.`;
+                
+                document.getElementById('text-explanation').innerHTML = "<strong>ADMINISTRATIVE BRIEFING:</strong> Following the public safety containment protocols executed in the Kohaku Settlement (June 2012), all networks broadcasting metadata associated with the VLI Vector (Infected Wolf Lineage) have been blacklisted. The preservation of local musical archives dedicated to hybrid ancestral entities poses an immediate threat to the demographic stability of the Pure Human Districts. Cultural integration and public empathy toward non-standard biological species are classified as containment failures.";
+                
+                document.getElementById('text-disquera').innerHTML = `For dynamic verification of standard sound publishing licenses and corporate compliance, references have been cataloged under the official recording registry: 
+                <a class='record-label-link' href='https://sonymusic.co.jp' target='_blank'>Sony Music Entertainment Japan (SMEJ) Official Portal</a>.`;
+                
+                document.getElementById('text-warning-box').innerHTML = "REMOVAL NOTICE: Due to territorial border split regulations enacted between pure human districts and coexistence sectors (Mizukawa Region), this civilian node has been permanently blacklisted. Continued attempts to duplicate this cache will trigger standard locator tracing protocols.";
+                
+                btn.innerHTML = "View Original (日本語)";
+                label.innerHTML = "Language: English (Translated)";
+                currentLanguage = 'EN';
+            } else {
+                // REGRESAR AL JAPONÉS ORIGINAL AL VOLVER A PICAR
+                location.reload(); // Recarga rápida para restaurar el japonés nativo de fábrica
+            }
+        }
+    </script>
 </body>
 </html>
