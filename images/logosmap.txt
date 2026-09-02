@@ -1,0 +1,5 @@
+A1 = logo
+A2 = banner banda
+A3 = portada hero
+A4 = álbum
+B1-B5 = fotos

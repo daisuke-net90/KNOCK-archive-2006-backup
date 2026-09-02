@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>Contact us!!</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="container">
+
+<!-- HEADER -->
+<div id="header">
+
+    <img src="images/A1.png" class="logo">
+
+    <div class="menu">
+
+        <a href="Home.html">HOME</a>
+        <a href="news.html">NEWS</a>
+        <a href="music.html">MUSIC</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html">CONTACT</a>
+
+    </div>
+
+</div>
+
+<!-- TITLE -->
+<div class="hero">
+
+    <h1>CONTACT</h1>
+    <p>Official communication channel of K.N.O.C.K</p>
+
+</div>
+
+<!-- CONTENT -->
+<table class="layout">
+
+<tr>
+
+<td class="left">
+
+    <div class="box">
+
+        <h2>MANAGEMENT</h2>
+
+        <p>
+        For business inquiries, press, interviews and bookings:
+        </p>
+
+        <p>
+        Email: <b>contact@knock-official.jp</b><br>
+        Phone: <b>+81 03-2582-7616</b>
+        </p>
+
+    </div>
+
+    <div class="box">
+
+        <h2>LABEL</h2>
+
+        <p>
+        K.N.O.C.K is represented by:
+        </p>
+
+        <p>
+        <b>NeoSound Records</b><br>
+        Tokyo, Japan
+        </p>
+
+    </div>
+
+</td>
+
+<td class="right">
+
+<form id="contactForm">
+
+    <p>Name:</p>
+    <input type="text" id="name">
+
+    <p>Email:</p>
+    <input type="text" id="email">
+
+    <p>Message:</p>
+    <textarea id="message"></textarea>
+
+    <br><br>
+
+    <button type="submit">SEND</button>
+
+</form>
+
+<!-- MENSAJE NORMAL -->
+<div id="successMessage" class="hiddenMessage">
+
+Your message has been sent. You will receive an Email with a response from the K.N.O.C.K. staff. If you're lucky, you might even receive a message from the band members themselves! 
+
+<br><br>
+
+¡Thank you for your message!!!
+</div>
+
+<!-- MENSAJE SECRETO -->
+<div id="secretMessage" class="hiddenMessage"></div>
+    
+    <div class="box">
+
+        <h2>NOTICE</h2>
+
+        <p>
+        Replies may take 2–4 weeks depending on tour schedule.
+        </p>
+
+        <p>
+        Please do not send attachments larger than 5MB.
+        </p>
+
+    </div>
+
+</td>
+
+</tr>
+
+</table>
+
+<!-- FOOTER -->
+<div id="footer">
+
+<p>© 2006 K.N.O.C.K Official Website</p>
+<p>NeoSound Records - All Rights Reserved</p>
+
+</div>
+
+<script>
+
+document.getElementById("contactForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let msg = document.getElementById("message").value.toLowerCase();
+
+    let secretBox = document.getElementById("secretMessage");
+    let normalBox = document.getElementById("successMessage");
+
+    // limpiar todo
+    secretBox.style.display = "none";
+    normalBox.style.display = "none";
+
+    document.body.classList.remove("yuki-mode", "kanoko-mode");
+
+    // 💀 YUKI ROUTE
+    if(msg.includes("yuki")){
+
+        document.body.classList.add("yuki-mode");
+
+        secretBox.innerHTML = `
+            <b>ACCESS GRANTED //</b><br><br>
+
+            <a href="yuki.html" style="color:#ff0000; font-weight:bold; text-decoration:underline;">
+                ENTER ARCHIVE
+            </a><br><br>
+
+            Wut?
+        `;
+
+        secretBox.style.display = "block";
+        this.reset();
+        return;
+    }
+
+    // 🍂 KANOKO ROUTE
+    if(msg.includes("kanoko")){
+
+        document.body.classList.add("kanoko-mode");
+
+        secretBox.innerHTML = `
+            <b>ARCHIVE FOUND //</b><br><br>
+
+            <a href="kanoko.html" style="color:#ffcc88; font-weight:bold; text-decoration:underline;">
+                OPEN ARCHIVE
+            </a><br><br>
+
+            why?
+        `;
+
+        secretBox.style.display = "block";
+        this.reset();
+        return;
+    }
+
+    // 📨 NORMAL MESSAGE
+    normalBox.style.display = "block";
+    normalBox.classList.add("showMessage");
+
+    this.reset();
+
+});
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,520 @@
+body{
+
+    margin:0;
+
+    background:url("../images/C1.png");
+
+    font-family:Tahoma, Arial;
+
+    color:white;
+
+}
+
+/* CONTENEDOR CENTRAL */
+#container{
+
+    width:960px;
+
+    margin:auto;
+
+    background:#1c1c1c;
+
+    border:2px solid #444;
+
+}
+
+/* HEADER */
+#header{
+
+    text-align:center;
+
+    background:#111;
+
+    border-bottom:4px solid #990000;
+
+    padding-bottom:10px;
+
+}
+
+.logo{
+
+    width:400px;
+
+}
+
+.banner{
+
+    width:100%;
+
+}
+
+/* MENU */
+.menu{
+
+    background:#222;
+
+    padding:10px;
+
+}
+
+.menu a{
+
+    display:inline-block;
+
+    padding:10px 15px;
+
+    margin:3px;
+
+    color:white;
+
+    text-decoration:none;
+
+    background:linear-gradient(#666,#222);
+
+    border:1px solid #555;
+
+    font-weight:bold;
+
+}
+
+.menu a:hover{
+
+    background:#990000;
+
+}
+
+/* HERO */
+.hero{
+
+    text-align:center;
+
+    padding:20px;
+
+    background:#111;
+
+    border-bottom:2px solid #333;
+
+}
+
+.hero img{
+
+    width:80%;
+
+    border:2px solid #555;
+
+}
+
+/* LAYOUT */
+.layout{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+td{
+
+    vertical-align:top;
+
+    padding:10px;
+
+}
+
+/* BOXES */
+.box{
+
+    border:2px solid #555;
+
+    background:#222;
+
+    margin-bottom:15px;
+
+    padding:10px;
+
+}
+
+.box h2{
+
+    background:#990000;
+
+    padding:8px;
+
+    margin-top:0;
+
+}
+
+/* GALLERY */
+.box img{
+
+    width:48%;
+
+    margin:2px;
+
+    border:2px solid #444;
+
+}
+
+/* ALBUM */
+.album{
+
+    width:100%;
+
+    border:3px solid #666;
+
+}
+
+/* FOOTER */
+#footer{
+
+    text-align:center;
+
+    padding:20px;
+
+    background:#111;
+
+    border-top:4px solid #990000;
+
+    font-size:12px;
+
+    color:#aaa;
+
+}
+
+.news-item{
+
+    border:1px solid #444;
+
+    margin-bottom:15px;
+
+    padding:10px;
+
+    background:#1a1a1a;
+
+}
+
+.news-item h3{
+
+    color:#ff4040;
+
+    margin:0 0 5px 0;
+
+    font-size:14px;
+
+}
+
+.news-item p{
+
+    margin:0;
+
+    font-size:13px;
+
+    color:#ddd;
+
+}
+
+.box h3{
+
+    color:#ffcc00;
+
+    margin-top:15px;
+
+    border-left:4px solid #990000;
+
+    padding-left:8px;
+
+}
+
+.box ul{
+
+    list-style-type:square;
+
+    margin-left:20px;
+
+    color:#ddd;
+
+}
+
+.box ul li{
+
+    padding:3px 0;
+
+    font-size:13px;
+
+}
+
+/* separador visual entre álbumes */
+.box{
+
+    position:relative;
+
+}
+
+/* efecto “discografía profesional” */
+.box::after{
+
+    content:"";
+
+    display:block;
+
+    height:1px;
+
+    background:linear-gradient(to right, transparent, #555, transparent);
+
+    margin-top:15px;
+
+}
+
+/* títulos de años */
+.box h2{
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+
+/* álbum importante (último álbum) */
+.box:last-of-type{
+
+    border:2px solid #990000;
+
+    background:#151515;
+
+}
+
+/* resaltado del álbum final */
+.box:last-of-type h3{
+
+    color:#ff4040;
+
+}
+
+/* efecto hover estilo catálogo */
+.box:hover{
+
+    border-color:#777;
+
+    background:#232323;
+
+}
+
+/* pequeños detalles “discográfica” */
+.hero p{
+
+    font-style:italic;
+
+    color:#bbb;
+
+}
+
+.box{
+
+    overflow:hidden;
+
+}
+
+/* grid visual estilo 2000s (no moderno flex limpio) */
+.box img{
+
+    width:170px;
+
+    height:170px;
+
+    margin:6px;
+
+    border:3px solid #444;
+
+    background:#000;
+
+    object-fit:cover;
+
+    display:inline-block;
+
+    vertical-align:top;
+
+}
+
+/* efecto hover estilo web antigua */
+.box img:hover{
+
+    border-color:#ff4040;
+
+    cursor:pointer;
+
+}
+
+/* títulos de sección dentro de gallery */
+.box h3{
+
+    margin-top:0;
+
+    background:#111;
+
+    color:#ffcc00;
+
+    padding:6px;
+
+    border-left:5px solid #990000;
+
+    font-size:14px;
+
+}
+
+/* texto de instrucción */
+.box p{
+
+    color:#aaa;
+
+    font-size:12px;
+
+    margin-top:5px;
+
+}
+
+/* sensación “archivo de fotos” */
+.hero p{
+
+    font-style:italic;
+
+    color:#bbb;
+
+}
+
+.hiddenMessage{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:15px;
+
+    border:2px solid #990000;
+
+    background:#111;
+
+    color:#fff;
+
+}
+
+.showMessage{
+
+    display:block;
+
+    animation:fadeIn 0.6s ease-in;
+
+}
+
+@keyframes fadeIn{
+
+    from { opacity:0; transform:scale(0.95); }
+
+    to { opacity:1; transform:scale(1); }
+
+}
+
+
+.hiddenMessage{
+
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    border:2px solid #990000;
+    background:#111;
+    color:#fff;
+
+}
+
+.showMessage{
+
+    display:block;
+    animation:fadeIn 0.6s ease-in;
+
+}
+
+@keyframes fadeIn{
+
+    from { opacity:0; transform:scale(0.95); }
+    to { opacity:1; transform:scale(1); }
+
+}
+
+.yuki-mode{
+
+    background:#050505 !important;
+    color:#ff0000 !important;
+    filter:contrast(1.3) saturate(0.7);
+
+}
+
+.kanoko-mode{
+
+    background:#2b1b10 !important;
+    color:#ffcc88 !important;
+
+}
+
+#secretMessage a{
+
+    display:inline-block;
+    padding:5px 0;
+
+}
+
+#secretMessage a:hover{
+
+    opacity:0.7;
+    cursor:pointer;
+
+}
+
+
+/* pantalla Yuki */
+.yuki-mode{
+    background:#050505;
+    color:#ff2a2a;
+    font-family: monospace;
+    overflow:hidden;
+}
+
+/* contenedor tipo “cinta de créditos” */
+.yuki-scroll{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* texto moviéndose como créditos */
+.yuki-scroll p{
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    animation: creditsMove 90s linear forwards;
+    white-space: pre-line;
+    line-height: 1.6;
+}
+
+/* movimiento vertical */
+@keyframes creditsMove{
+    0%{
+        transform: translateY(110vh);
+    }
+    100%{
+        transform: translateY(-500%);
+    }
+}
+
+/* glitch aleatorio */
+.glitch{
+    animation: glitch 0.2s infinite;
+}
+
+@keyframes glitch{
+    0%{ transform: translate(0,0); }
+    20%{ transform: translate(-2px,1px); }
+    40%{ transform: translate(2px,-1px); }
+    60%{ transform: translate(-1px,-2px); }
+    80%{ transform: translate(1px,2px); }
+    100%{ transform: translate(0,0); }
+}

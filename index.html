@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wayback Machine - Calendar of http://KNOCK.co.jp</title>
+    <style>
+        /* CONTROLADOR DE ENTORNO INTERACTIVO (RÉPLICA FIEL) */
+        body {
+            margin: 0; padding: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #ffffff; display: flex; flex-direction: column;
+            height: 100vh; overflow: hidden;
+        }
+        #ia-global-nav {
+            background-color: #2c2c2c; color: #ffffff; font-size: 11px;
+            padding: 7px 20px; display: flex; justify-content: space-between; align-items: center;
+            font-weight: bold; border-bottom: 1px solid #111;
+        }
+        .ia-links { color: #ccc; text-decoration: none; margin-left: 12px; font-weight: normal; }
+        .ia-links:hover { color: #fff; }
+
+        #wm-wb-render-header {
+            background-color: #ffffff; border-bottom: 1px solid #ccc;
+            padding: 12px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;
+        }
+        .wm-branding-row { display: flex; align-items: center; gap: 20px; }
+        .wm-logo-img { height: 40px; }
+        .wm-url-input-box {
+            background: #fff; border: 1px solid #bbb; padding: 6px 12px;
+            width: 450px; font-size: 12px; color: #333; border-radius: 3px; font-family: Arial, sans-serif;
+        }
+        .wm-nav-tabs-row { display: flex; justify-content: center; gap: 15px; font-size: 13px; font-weight: bold; }
+        .wm-tab { color: #4b5563; text-decoration: none; padding: 2px 6px; }
+        .wm-tab-active { color: #fff !important; background-color: #cc0000; border-radius: 4px; padding: 2px 10px; }
+
+        /* GRÁFICA DE PICOS CONTINUOS */
+        .wm-historical-graph-wrapper {
+            background: #f4f4f4; border: 1px solid #dcdcdc; border-radius: 3px;
+            padding: 8px 15px; display: flex; flex-direction: column; gap: 4px;
+        }
+        .wm-graph-timeline-bars {
+            display: flex; align-items: flex-end; justify-content: space-between; height: 35px; background: #fff; border: 1px solid #ccc;
+        }
+        .wm-graph-year-column { display: flex; flex-direction: column; align-items: center; flex-grow: 1; cursor: pointer; }
+        .wm-peak-bar { width: 100%; background-color: #000000; border-right: 1px solid #ffffff; }
+        .wm-peak-bar:hover { background-color: #cc0000 !important; }
+        .wm-year-text-label { font-size: 10px; color: #555; font-weight: bold; margin-top: 2px; }
+        
+        /* SELECTOR ESPECÍFICO DE SNAPSHOTS ACCESIBLES DEL ARG */
+        .wm-snapshot-selector-panel {
+            background: #e2e8f0; border: 1px solid #cbd5e1; padding: 6px; border-radius: 4px; display: flex; justify-content: center; gap: 10px; margin-top: 2px;
+        }
+        .wm-snap-btn {
+            background: #ffffff; border: 1px solid #94a3b8; padding: 4px 10px; font-size: 11px; font-weight: bold; color: #1e293b; cursor: pointer; border-radius: 3px; display: none;
+        }
+        .wm-snap-btn:hover { background: #f1f5f9; }
+        .wm-snap-active { background: #990000 !important; color: #ffffff !important; border-color: #660000 !important; }
+
+        .wm-highlight-selected-status { font-size: 11px; font-style: italic; text-align: center; font-weight: bold; margin-top: 2px; }
+        #wm-viewport-iframe-render { flex-grow: 1; width: 100%; border: none; background: #ffffff; }
+    </style>
+</head>
+<body>
+
+    <div id="ia-global-nav">
+        <a style="color: #fff; text-decoration: none;" href="https://archive.org" target="_blank">🏛️ INTERNET ARCHIVE</a>
+        <div><a class="ia-links" href="#">WEB</a><a class="ia-links" href="#">TEXTS</a><a class="ia-links" href="#">AUDIO</a></div>
+    </div>
+
+    <div id="wm-wb-render-header">
+        <div class="wm-branding-row">
+            <a href="https://archive.org" target="_blank"><img class="wm-logo-img" src="https://archive.org" alt="Wayback Machine"></a>
+            <input class="wm-url-input-box" type="text" value="http://KNOCK.co.jp" readonly>
+        </div>
+        
+        <div class="wm-nav-tabs-row">
+            <a class="wm-tab wm-tab-active" href="#">Calendar</a><a class="wm-tab" href="#">Collections</a><a class="wm-tab" href="#">Summary</a>
+        </div>
+        
+        <!-- GRÁFICA DE HISTORIAL -->
+        <div class="wm-historical-graph-wrapper">
+            <div class="wm-graph-timeline-bars">
+                <div class="wm-graph-year-column" onclick="showSnapshotsEra('2002')"><div class="wm-peak-bar" id="graph-2002" style="height: 5px;"></div><span class="wm-year-text-label">2002</span></div>
+                <div class="wm-graph-year-column" onclick="showSnapshotsEra('2004')"><div class="wm-peak-bar" id="graph-2004" style="height: 22px;"></div><span class="wm-year-text-label">2004</span></div>
+                <div class="wm-graph-year-column" onclick="showSnapshotsEra('2006')"><div class="wm-peak-bar" id="graph-2006" style="height: 35px; background-color: #cc0000;"></div><span class="wm-year-text-label">2006</span></div>
+                <div class="wm-graph-year-column" onclick="showSnapshotsEra('2012')"><div class="wm-peak-bar" id="graph-2012" style="height: 2px;"></div><span class="wm-year-text-label">2012</span></div>
+            </div>
+        </div>
+
+        <!-- PANEL DE CAPTURAS ESPECÍFICAS (DINÁMICO SEGÚN EL AÑO) -->
+        <div class="wm-snapshot-selector-panel">
+            <!-- Snapshots 2004 -->
+            <button class="wm-snap-btn snap-04" id="snap-12apr04" onclick="loadTargetHtml('home04.html', '12apr04')">12 Apr 2004 (Foundation - No CSS)</button>
+            <button class="wm-snap-btn snap-04" id="snap-17apr04" onclick="loadTargetHtml('home04RE.html', '17apr04')">17 Abr 2004 (Update - With CSS)</button>
+            <!-- Snapshots 2006 -->
+            <button class="wm-snap-btn snap-06 wm-snap-active" id="snap-08jun06" onclick="loadTargetHtml('home.html', '08jun06')">08 Jun 2006 (Current Album - Complete)</button>
+            <!-- Snapshots 2012 -->
+            <button class="wm-snap-btn snap-12" id="snap-18jun12" onclick="loadTargetHtml('commonsence.html', '18jun12')">18 Jun 2012 (Government Shutdown)</button>
+        </div>
+        
+        <div class="wm-highlight-selected-status" id="wm-live-status-text" style="color: #16a34a;">Snapshot data: June 08, 2006. Production styles active. Compiled by daisuke-net90.</div>
+    </div>
+
+        <!-- VISOR DE ARCHIVOS ENLAZADO DIRECTAMENTE A TU INICIO -->
+    <iframe id="wm-viewport-iframe-render" src="home.html"></iframe>
+
+    <!-- LÓGICA INTERACTIVA DEL SELECTOR DE SNAPSHOTS SIN BUGS -->
+    <script>
+        // Función 1: Controla qué botones de fechas se muestran al pinchar un año en la gráfica
+        function showSnapshotsEra(year) {
+            // Restaurar el color negro base de todas las barras de la gráfica
+            document.getElementById('graph-2002').style.backgroundColor = '#000000';
+            document.getElementById('graph-2004').style.backgroundColor = '#000000';
+            document.getElementById('graph-2006').style.backgroundColor = '#000000';
+            document.getElementById('graph-2012').style.backgroundColor = '#000000';
+            document.getElementById('graph-' + year).style.backgroundColor = '#cc0000';
+
+            // Ocultar todos los botones de sub-capturas
+            var allBtns = document.querySelectorAll('.wm-snap-btn');
+            allBtns.forEach(function(btn) { btn.style.display = "none"; });
+
+            // Cargar datos y mostrar botones según el año seleccionado
+            if (year === '2004') {
+                document.getElementById('snap-12apr04').style.display = "inline-block";
+                document.getElementById('snap-17apr04').style.display = "inline-block";
+                loadTargetHtml('home04.html', '12apr04');
+            } 
+            else if (year === '2006') {
+                document.getElementById('snap-08jun06').style.display = "inline-block";
+                loadTargetHtml('home.html', '08jun06');
+            } 
+            else if (year === '2012') {
+                document.getElementById('snap-18jun12').style.display = "inline-block";
+                loadTargetHtml('commonsence.html', '18jun12'); // CORRECCIÓN: Carga directa automática
+            }
+            else if (year === '2002') {
+                var txtIndicator = document.getElementById('wm-live-status-text');
+                var viewFrame = document.getElementById('wm-viewport-iframe-render');
+                viewFrame.src = "about:blank";
+                txtIndicator.innerHTML = "🌐 Snapshot file: January 15, 2002. Domain registered by corporate placeholders. No index file found.";
+                txtIndicator.style.color = "#475569";
+            }
+        }
+
+        // Función 2: Administra la carga de las subpáginas en el visor y altera el CSS
+        function loadTargetHtml(url, snapId) {
+            // Limpiar el resaltado activo de los botones de captura
+            var allSnaps = document.querySelectorAll('.wm-snap-btn');
+            allSnaps.forEach(function(snap) { snap.classList.remove('wm-snap-active'); });
+            
+            // Activar visualmente el botón de captura correspondiente
+            var activeBtn = document.getElementById('snap-' + snapId);
+            if (activeBtn) activeBtn.classList.add('wm-snap-active');
+
+            var viewFrame = document.getElementById('wm-viewport-iframe-render');
+            var txtIndicator = document.getElementById('wm-live-status-text');
+            
+            // CORRECCIÓN CENTRAL: Asegurar que el visor SIEMPRE esté visible al cambiar de era
+            viewFrame.style.display = "block";
+            viewFrame.src = url;
+
+            // Procesar las reglas específicas de carga interna por cada Snapshot
+            if (snapId === '12apr04') {
+                txtIndicator.innerHTML = "📄 Snapshot: April 12, 2004. Stylesheet 'CSS/style.css' returned status 404 (Not Found). Rendering Raw HTML.";
+                txtIndicator.style.color = "#ea580c";
+                
+                viewFrame.onload = function() {
+                    var frameDoc = viewFrame.contentDocument || viewFrame.contentWindow.document;
+                    var styleSheets = frameDoc.querySelectorAll('link[rel="stylesheet"]');
+                    styleSheets.forEach(function(sheet) { sheet.disabled = true; });
+                };
+            } 
+            else if (snapId === '17apr04') {
+                txtIndicator.innerHTML = "Snapshot: April 17, 2004. CSS stylesheet 'CSS/style.css' loaded successfully from local directory.";
+                txtIndicator.style.color = "#16a34a";
+                
+                viewFrame.onload = function() {
+                    var frameDoc = viewFrame.contentDocument || viewFrame.contentWindow.document;
+                    var styleSheets = frameDoc.querySelectorAll('link[rel="stylesheet"]');
+                    styleSheets.forEach(function(sheet) { sheet.disabled = false; });
+                };
+            } 
+            else if (snapId === '08jun06') {
+                txtIndicator.innerHTML = "Snapshot data: June 08, 2006. Production styles active. Archive compiled by daisuke-net90.";
+                txtIndicator.style.color = "#16a34a";
+                
+                viewFrame.onload = function() {
+                    var frameDoc = viewFrame.contentDocument || viewFrame.contentWindow.document;
+                    var styleSheets = frameDoc.querySelectorAll('link[rel="stylesheet"]');
+                    styleSheets.forEach(function(sheet) { sheet.disabled = false; });
+                };
+            } 
+            else if (snapId === '18jun12') {
+                txtIndicator.innerHTML = "Critical network status: June 18, 2012 snapshot. Data extraction refused by public safety server protocols.";
+                txtIndicator.style.color = "#dc2626";
+                viewFrame.onload = null; // No requiere manipulación de estilos
+            }
+        }
+
+        // Configuración inicial por defecto al cargar el sitio web
+        window.onload = function() {
+            document.getElementById('snap-08jun06').style.display = "inline-block";
+        };
+    </script>
+
+</body>
+</html>
